@@ -1,0 +1,14 @@
+services:
+  open-api:
+    image: redocly/redoc
+    container_name: redocly
+    ports:
+      - 8085:80
+    volumes:
+      - ./demo:/usr/share/nginx/html/documentation
+    environment:
+      SPEC_URL: documentation/openapi.json
+      REDOC_OPTIONS: >-
+        hide-download-button=false
+        disable-search=false
+        default-sample-language='php'
